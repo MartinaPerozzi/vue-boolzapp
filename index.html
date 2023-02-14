@@ -71,7 +71,7 @@
 					<div class="input-search-contact">
 						<div class="bg-white d-flex">
 							<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
-							<input type="text" placeholder="Cerca o inizia una nuova chat">
+							<input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
 						</div>
 					</div>
 
@@ -79,9 +79,12 @@
 					<div class="contacts-container pt-2">
 						<ul>
 							<!-- Crea contatti -->
-							<li v-for="(contact,index) in contacts" @click="goToContactChat(index)">
-								<div class="contacts d-flex">
-									<div class="avatar-img align-self-center">
+							<li v-for="(contact,activeContact) in contacts">
+
+								<div class="contacts d-flex" v-if="contact.name.toLowerCase().includes(search)"
+									@click="goToContactChat(activeContact)">
+
+									<div class=" avatar-img align-self-center">
 										<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
 									</div>
 									<div class="contact-info ms-2 pt-1"> {{contact.name}}</div>

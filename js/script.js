@@ -176,6 +176,8 @@ const app = Vue.createApp({
 
             // Setto un indice
             activeContact: 0,
+            // Ricerca contatto
+            search: "",
         }
 
     },

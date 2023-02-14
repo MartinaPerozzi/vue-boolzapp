@@ -1,0 +1,22 @@
+/* Structure */
+.boolzap-container {
+    width: 1200px;
+}
+
+.sidebar-contact {
+    width: 400px;
+    background-color: white;
+}
+
+.main-chat-content {
+    background-image: url(../img/mine.jpg);
+}
+
+/* Messages */
+.sent-message {
+    background-color: green;
+}
+
+.received-message {
+    background-color: white;
+}

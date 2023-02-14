@@ -2,18 +2,15 @@
 body {
     background-color: grey;
     background: linear-gradient(180deg, rgb(29, 124, 119) 15%, rgb(220, 222, 216) 15%);
+    height: 90vh;
 }
-
 
 .boolzap-bg {
     width: 100%;
     height: 100%;
-    align-items: center;
 }
 
 .container-division {
-    min-width: 900px;
-    max-width: 1000px;
     box-shadow:
         0px 0px 0.4px rgba(0, 0, 0, 0.02),
         0px 0px 0.9px rgba(0, 0, 0, 0.028),
@@ -21,6 +18,7 @@ body {
         0px 0px 3.1px rgba(0, 0, 0, 0.042),
         0px 0px 5.8px rgba(0, 0, 0, 0.05),
         0px 0px 14px rgba(0, 0, 0, 0.07);
+    min-width: 900px;
 }
 
 
@@ -57,8 +55,6 @@ li {
     height: 55px;
     border-right: 1px solid rgb(198, 198, 198);
     width: 350px;
-    position: fixed;
-    z-index: 1;
 }
 
 .my-img {
@@ -75,7 +71,6 @@ li {
 .notification {
     background-color: #6dd7ff;
     height: 60px;
-    margin-top: 3.3rem;
     font-size: 0.8rem;
 }
 
@@ -127,15 +122,14 @@ li {
 /* MAIN SECTION */
 .main-chat-content {
     background-image: url(../img/mine.jpg);
-    width: calc(1000px - 350px);
     height: 550px;
     overflow: auto;
     font-size: 0.8rem;
+    min-width: calc(100% - 350px);
 }
 
 
 .head-contact {
-    position: fixed;
     width: 100%;
     max-width: 586px;
     height: 55px;
@@ -145,7 +139,7 @@ li {
 
 .main-center {
     width: 100%;
-    height: calc(100% - 55px);
+    height: calc(100% - 55px - 55px);
     overflow: auto;
 }
 

@@ -37,7 +37,7 @@
 		<div class="container boolzap-container">
 
 			<div class="container-division d-flex">
-
+				<!-- SIDEBAR -->
 				<div class="sidebar-contact">
 					<!-- MY SECTION -->
 					<div class="my-contact d-flex justify-content-between pb-1 align-items-center">
@@ -65,9 +65,8 @@
 								<a href="#">Attiva notifica desktop</a>
 							</div>
 						</div>
-
 					</div>
-
+					<!-- Search contact section -->
 					<div class="input-search-contact">
 						<div class="bg-white d-flex">
 							<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
@@ -75,7 +74,7 @@
 						</div>
 					</div>
 
-
+					<!-- CONTACTS -->
 					<div class="contacts-container pt-2">
 						<ul>
 							<li v-for="contact in contacts">
@@ -85,7 +84,6 @@
 									</div>
 									<div class="contact-info ms-2"> {{contact.name}}</div>
 
-
 								</div>
 							</li>
 
@@ -93,9 +91,11 @@
 					</div>
 
 				</div>
-
+				<!-- MAIN -->
 				<div class="main-chat-content">
-					<div class="head-contact"></div>
+					<div class="head-contact">
+
+					</div>
 					<div class="conversation"></div>
 					<div class="foot-message">
 						<input class="insert-message" type="text" placeholder="Scrivi un messaggio">

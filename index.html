@@ -43,7 +43,7 @@
 					<div class="my-contact d-flex justify-content-between pb-1 align-items-center">
 						<!-- Avatar & name Right Side-->
 						<div class="my-contact-right-side-me ms-2 mb-1">
-							<img class="my-img" src="./img/avatar_io.jpg" alt="">
+							<img class="my-img me-2" src="./img/avatar_io.jpg" alt="">
 							<span>Sofia</span>
 						</div>
 						<!-- Icons Left Side -->
@@ -79,10 +79,10 @@
 						<ul>
 							<li v-for="contact in contacts">
 								<div class="contacts d-flex">
-									<div class="avatar-img">
+									<div class="avatar-img align-self-center">
 										<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
 									</div>
-									<div class="contact-info ms-2"> {{contact.name}}</div>
+									<div class="contact-info ms-2 pt-1"> {{contact.name}}</div>
 
 								</div>
 							</li>
@@ -93,14 +93,29 @@
 				</div>
 				<!-- MAIN -->
 				<div class="main-chat-content">
-					<div class="head-contact">
+					<!-- HEAD -->
+					<div class="head-contact d-flex align-items-center justify-content-between pe-3">
+						<div>
+							<img class="current-contact-img" src="" alt="">
+							<span class="current-name"></span>
+						</div>
+						<div class="icon-current-contact d-flex">
+							<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
+							<i class="fa-solid fa-paperclip"></i>
+							<i class="fa-solid fa-ellipsis-vertical ps-2"></i>
+
+						</div>
 
 					</div>
+					<!-- CENTER -->
 					<div class="main-center">
 						<div class="conversation"></div>
 					</div>
-					<div class="foot-message d-flex align-item-center">
+					<!-- FOOTER -->
+					<div class="foot-message d-flex align-items-center">
+						<i class="fa-regular fa-face-smile"></i>
 						<input class="insert-message" type="text" placeholder="Scrivi un messaggio">
+						<i class="fa-solid fa-microphone"></i>
 					</div>
 
 				</div>

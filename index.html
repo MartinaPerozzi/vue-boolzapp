@@ -39,11 +39,22 @@
 			<div class="container-division d-flex">
 
 				<div class="sidebar-contact">
+					<div class="my-contact">
+						<div class="right-side-me">
+							<img class="my-img" src="./img/avatar_io.jpg" alt="">
+							<span>Sofia</span>
+						</div>
+						<div class="my-icons">
+
+						</div>
+					</div>
 					<ul>
 						<li v-for="contact in contacts">
 							<div class="contacts d-flex">
-								<img :src="contact.avatar" alt="">
-								<div> {{contact.name}}</div>
+								<div class="avatar-img">
+									<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
+								</div>
+								<div class="contact-info ms-2"> {{contact.name}}</div>
 
 
 							</div>

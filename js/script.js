@@ -200,7 +200,7 @@ const app = Vue.createApp({
         answerMess(index) {
             setTimeout(() => {
                 const answer = {
-                    text: "Ok!",
+                    text: "Ok! :)",
                     status: 'received',
                 }
                 this.contacts[index].messages.push(answer);

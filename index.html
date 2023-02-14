@@ -39,6 +39,17 @@
 			<div class="container-division d-flex">
 
 				<div class="sidebar-contact">
+					<ul>
+						<li v-for="contact in contacts">
+							<div class="contacts d-flex">
+								<img :src="contact.avatar" alt="">
+								<div> {{contact.name}}</div>
+
+
+							</div>
+						</li>
+
+					</ul>
 
 				</div>
 

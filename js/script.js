@@ -188,15 +188,28 @@ const app = Vue.createApp({
             }
             this.contacts[index].messages.push(myMessageCopia);
             this.myMessages.text = "";
+            this.answerMess(index);
 
         },
 
         goToContactChat(index) {
             this.activeContact = index;
 
-        }
+        },
 
-    }
+        answerMess(index) {
+            setTimeout(() => {
+                const answer = {
+                    text: "Ok!",
+                    status: 'received',
+                }
+                this.contacts[index].messages.push(answer);
+                this.myMessages.text = "";
+
+            }, 1000);
+        },
+
+    },
 
 
 

@@ -112,8 +112,16 @@
 					</div>
 					<!-- CENTER -->
 					<div class="main-center">
-						<div class="conversation"></div>
+						<!-- Per ogni messaggio e indice del messaggio contenuto in ciascun contatto (dell'array contatti) -->
+						<div class="conversation d-flex flex-column">
+							<!-- mostra il testo di ogni messaggio -->
+							<div class="message-chat" v-for="(message, index) in contacts[activeContact].messages"
+								:class="message.status">
+								{{message.text}}
+							</div>
+						</div>
 					</div>
+
 					<!-- FOOTER -->
 					<div class="foot-message d-flex align-items-center">
 						<i class="fa-regular fa-face-smile"></i>

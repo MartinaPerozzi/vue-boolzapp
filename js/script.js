@@ -215,7 +215,9 @@ const app = Vue.createApp({
                     text: "Ok! :)",
                     status: 'received',
                 }
+                // Pusha la risposta dentro all'array messages in contacts - per ogni contatto- ci entro con parametro index-
                 this.contacts[index].messages.push(answer);
+                // Torna bianco
                 this.myMessages.text = "";
 
             }, 1000);

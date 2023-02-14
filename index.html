@@ -31,12 +31,13 @@
 
 </head>
 
-<body>
+<body class="d-flex justify-content-center align-items-center">
+
 	<div id="root">
 
 		<div class="container boolzap-bg">
 
-			<div class="container-division d-flex mt-3">
+			<div class="container-division d-flex">
 				<!-- SIDEBAR -->
 				<div class="sidebar-contact">
 					<!-- MY SECTION -->
@@ -117,7 +118,7 @@
 					<div class="main-center">
 						<!-- Per ogni messaggio e indice del messaggio contenuto in ciascun contatto (dell'array contatti) -->
 						<div class="conversation d-flex flex-column">
-							<!-- mostra il testo di ogni messaggio -->
+							<!-- mostra il testo di ogni messaggio nella chat specifica di ogni contatto (indice activeContact)-->
 							<div class="message-chat" v-for="(message, index) in contacts[activeContact].messages"
 								:class="message.status">
 								{{message.text}}
@@ -144,6 +145,7 @@
 
 		</div>
 	</div>
+
 
 
 </body>

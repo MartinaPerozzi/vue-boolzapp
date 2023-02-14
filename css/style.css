@@ -124,6 +124,11 @@ li {
     overflow: auto;
 }
 
+.last-access {
+    font-size: 0.6rem;
+    margin-top: 0.3rem;
+}
+
 /* MAIN SECTION */
 .main-chat-content {
     background-image: url(../img/mine.jpg);
@@ -191,7 +196,6 @@ input:focus {
 /* CHAT */
 /* Messages */
 .conversation {
-    margin-top: 3rem;
     padding: 2rem;
     font-size: 0.8rem;
 }

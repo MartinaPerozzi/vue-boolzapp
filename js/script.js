@@ -174,9 +174,9 @@ const app = Vue.createApp({
 
             },
 
-            // Setto un indice
+            // Setto un indice per il parametro index
             activeContact: 0,
-            // Ricerca contatto
+            // Ricerca contatto- per collegare l'input a un elemento reattivo con il v-model
             search: "",
         }
 
@@ -184,22 +184,31 @@ const app = Vue.createApp({
 
     methods: {
 
+        // Crea una funzione con una copia dell'oggetto vuoto che ho già creato in "data" e che è reattivo, collega la proprietà text dell'oggetto all'input di testo con v-model
         addMessage(index) {
             const myMessageCopia = {
                 text: this.myMessages.text,
                 status: 'sent',
             }
-            this.contacts[index].messages.push(myMessageCopia);
-            this.myMessages.text = "";
-            this.answerMess(index);
+            // Per non mandare messaggi vuoti
+            if (myMessageCopia.text.length > 0) {
+                // Pusha il nuovo oggetto così ottenuto dentro all'array messages in contacts- ci entro con l'index-
+                // questo pusherà il nuovo elemento che verrà preso dal v-for applicato alla sezione contatti aggiungendolo alla chat.
+                this.contacts[index].messages.push(myMessageCopia);
+                // Riparti da bianco
+                this.myMessages.text = "";
+                // Funzione risposta automatica
+                this.answerMess(index);
+            }
 
         },
-
+        // Vai alla chat/ metodo Thumbnails
         goToContactChat(index) {
             this.activeContact = index;
 
         },
 
+        // Setta una risposta automatica ogni secondo, da attivare all'invio del messaggio
         answerMess(index) {
             setTimeout(() => {
                 const answer = {
@@ -212,9 +221,16 @@ const app = Vue.createApp({
             }, 1000);
         },
 
+        // Ultimo accesso
+        lastAccess(index) {
+            // Variabile per prendere ultimo elemento di un array (in questo caso ultimo oggetto- quindi lunghezza massima delle cose contenute nell'array messages-ovvero messages.length- -1)
+            let lastmessage = this.contacts[index].messages.length - 1;
+            // del contatto corrente che starai ciclando nel for prendimi per ognuno l'ultima proprietà "data" dell'ultimo oggetto "messaggio".
+            return this.contacts[index].messages[lastmessage].date;
+        },
+
+
     },
-
-
 
 });
 app.mount("#root");

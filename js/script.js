@@ -169,11 +169,22 @@ const app = Vue.createApp({
 
                     ],
                 },
-            ]
+            ],
+
+            activeContact: 0,
+        }
+
+    },
+
+    methods: {
+
+        goToContactChat(index) {
+            this.activeContact = index;
 
         }
 
     }
+
 
 
 });

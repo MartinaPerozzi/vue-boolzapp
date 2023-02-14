@@ -77,7 +77,8 @@
 					<!-- CONTACTS -->
 					<div class="contacts-container pt-2">
 						<ul>
-							<li v-for="contact in contacts">
+							<!-- Crea contatti -->
+							<li v-for="(contact,index) in contacts" @click="goToContactChat(index)">
 								<div class="contacts d-flex">
 									<div class="avatar-img align-self-center">
 										<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
@@ -91,12 +92,14 @@
 					</div>
 
 				</div>
+
 				<!-- MAIN -->
 				<div class="main-chat-content">
 					<!-- HEAD -->
 					<div class="head-contact d-flex align-items-center justify-content-between pe-3">
 						<div>
-							<img class="current-contact-img" src="" alt="">
+							<img class="current-contact-img ms-2"
+								:src="['img/avatar' + contacts[activeContact].avatar + '.jpg']">
 							<span class="current-name"></span>
 						</div>
 						<div class="icon-current-contact d-flex">

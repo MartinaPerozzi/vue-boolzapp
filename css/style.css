@@ -1,10 +1,23 @@
 /* Structure */
-.boolzap-container {
-    width: 1200px;
+body {
+    background-color: grey;
 }
 
+.container-division {
+    min-width: 900px;
+    max-width: 1200px;
+    box-shadow:
+        0px 0px 0.4px rgba(0, 0, 0, 0.02),
+        0px 0px 0.9px rgba(0, 0, 0, 0.028),
+        0px 0px 1.8px rgba(0, 0, 0, 0.035),
+        0px 0px 3.1px rgba(0, 0, 0, 0.042),
+        0px 0px 5.8px rgba(0, 0, 0, 0.05),
+        0px 0px 14px rgba(0, 0, 0, 0.07);
+}
+
+
 .sidebar-contact {
-    width: 350px;
+    min-width: 350px;
     background-color: white;
 }
 
@@ -115,12 +128,45 @@ li {
         0px 0px 14px rgba(0, 0, 0, 0.07);
 }
 
+.contacts-container {
+    max-height: 390px;
+    overflow: auto;
+}
+
 /* MAIN SECTION */
+.main-chat-content {
+    width: calc(100% - 350px);
+}
+
 .head-contact {
     position: fixed;
-    width: 100%;
+    width: 586px;
     height: 55px;
     background-color: #e7e7e7;
 }
 
-/* f2ebe6 */
+
+.main-center {
+    width: 100%;
+    height: calc(100% - 55px);
+    overflow: auto;
+    overflow: hidden;
+}
+
+
+/* Foot */
+.foot-message {
+    background-color: #f2ebe6;
+    width: 100%;
+    height: 55px;
+    padding: 0.5rem 1rem;
+}
+
+.insert-message {
+    height: 35px;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+}

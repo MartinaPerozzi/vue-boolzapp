@@ -39,28 +39,58 @@
 			<div class="container-division d-flex">
 
 				<div class="sidebar-contact">
-					<div class="my-contact">
-						<div class="right-side-me">
+					<!-- MY SECTION -->
+					<div class="my-contact d-flex justify-content-between pb-1 align-items-center">
+						<!-- Avatar & name Right Side-->
+						<div class="my-contact-right-side-me ms-2 mb-1">
 							<img class="my-img" src="./img/avatar_io.jpg" alt="">
 							<span>Sofia</span>
 						</div>
-						<div class="my-icons">
-
+						<!-- Icons Left Side -->
+						<div class="my-icons d-flex me-3">
+							<i class="fa-solid fa-circle-notch"></i>
+							<i class="fa-solid fa-message"></i>
+							<i class="fa-solid fa-ellipsis-vertical"></i>
 						</div>
 					</div>
-					<ul>
-						<li v-for="contact in contacts">
-							<div class="contacts d-flex">
-								<div class="avatar-img">
-									<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
-								</div>
-								<div class="contact-info ms-2"> {{contact.name}}</div>
-
-
+					<!-- Notification section -->
+					<div class="notification d-flex align-items-center">
+						<!-- Bell notification Icon -->
+						<div class="notification-icon ms-2 me-2 d-flex align-items-center justify-content-center">
+							<i class="fa-solid fa-bell-slash"></i>
+						</div>
+						<div class="text-notification">
+							<di>Ricevi notifiche di nuovi messaggi</di>
+							<div class="active-notification">
+								<a href="#">Attiva notifica desktop</a>
 							</div>
-						</li>
+						</div>
 
-					</ul>
+					</div>
+
+					<div class="input-search-contact">
+						<div class="bg-white d-flex">
+							<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
+							<input type="text" placeholder="Cerca o inizia una nuova chat">
+						</div>
+					</div>
+
+
+					<div class="contacts-container pt-2">
+						<ul>
+							<li v-for="contact in contacts">
+								<div class="contacts d-flex">
+									<div class="avatar-img">
+										<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
+									</div>
+									<div class="contact-info ms-2"> {{contact.name}}</div>
+
+
+								</div>
+							</li>
+
+						</ul>
+					</div>
 
 				</div>
 

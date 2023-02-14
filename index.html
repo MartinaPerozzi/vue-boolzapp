@@ -100,7 +100,10 @@
 						<div>
 							<img class="current-contact-img ms-2"
 								:src="['img/avatar' + contacts[activeContact].avatar + '.jpg']">
-							<span class="current-name"></span>
+							<span class="current-name ms-2">
+								{{contacts[activeContact].name}}
+							</span>
+
 						</div>
 						<div class="icon-current-contact d-flex">
 							<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
@@ -125,7 +128,8 @@
 					<!-- FOOTER -->
 					<div class="foot-message d-flex align-items-center">
 						<i class="fa-regular fa-face-smile"></i>
-						<input class="insert-message" type="text" placeholder="Scrivi un messaggio">
+						<input @keyUp.enter="addMessage(activeContact)" class="insert-message" type="text"
+							placeholder="Scrivi un messaggio" v-model="myMessages.text">
 						<i class="fa-solid fa-microphone"></i>
 					</div>
 

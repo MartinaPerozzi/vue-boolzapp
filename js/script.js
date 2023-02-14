@@ -42,7 +42,7 @@ const app = Vue.createApp({
                         },
                         {
                             date: '20/03/2020 16:35:00',
-                            message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                            text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                             status: 'sent'
                         },
                     ],
@@ -170,6 +170,9 @@ const app = Vue.createApp({
                     ],
                 },
             ],
+            myMessages: {
+
+            },
 
             activeContact: 0,
         }
@@ -177,6 +180,16 @@ const app = Vue.createApp({
     },
 
     methods: {
+
+        addMessage(index) {
+            const myMessageCopia = {
+                text: this.myMessages.text,
+                status: 'sent',
+            }
+            this.contacts[index].messages.push(myMessageCopia);
+            this.myMessages.text = "";
+
+        },
 
         goToContactChat(index) {
             this.activeContact = index;

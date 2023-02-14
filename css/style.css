@@ -70,6 +70,7 @@ li {
     background-color: #6dd7ff;
     height: 60px;
     margin-top: 3.3rem;
+    font-size: 0.8rem;
 }
 
 .notification-icon {
@@ -123,6 +124,7 @@ li {
     width: calc(1000px - 350px);
     height: 550px;
     overflow: auto;
+    font-size: 0.8rem;
 }
 
 

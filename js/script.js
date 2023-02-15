@@ -231,6 +231,13 @@ const app = Vue.createApp({
             return this.contacts[index].messages[lastmessage].date;
         },
 
+        // Ultimo messaggio
+        lastMessage(index) {
+            let lastmessageSend = this.contacts[index].messages.length - 1;
+            // del contatto corrente che starai ciclando nel for prendimi per ognuno l'ultima proprietà "data" dell'ultimo oggetto "messaggio".
+            return this.contacts[index].messages[lastmessageSend].text;
+        },
+
         // Prova-non funziona
         deleteMessage(index) {
             this.contacts[index].messages.splice(i, 1);

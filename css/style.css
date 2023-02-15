@@ -6,14 +6,14 @@ body {
 }
 
 #root {
-    width: 90%;
+    width: 80vw;
+    min-height: 500px;
+    height: 90vh;
+    max-height: 800px;
+    min-width: 600px;
+    max-width: 1600px;
 }
 
-.boolzap-bg {
-    width: 100%;
-    height: 100%;
-    min-width: 100%;
-}
 
 .container-division {
     box-shadow:
@@ -26,35 +26,15 @@ body {
     min-width: 100%;
 }
 
-
+/* SIDEBAR-CONTACTS */
 .sidebar-contact {
-    min-width: 350px;
+    max-width: 350px;
     background-color: white;
     font-size: 0.9rem;
 }
 
-/* SIDEBAR-CONTACTS */
 
-.contacts {
-    height: 60px;
-}
-
-ul {
-    list-style-type: none;
-    padding-left: 1rem;
-}
-
-li {
-    border-bottom: 1px solid rgb(210, 210, 210);
-}
-
-.avatar-side {
-    width: 50px;
-    height: 50px;
-    clip-path: circle(50% at 50% 50%);
-}
-
-/* Me */
+/* My contact */
 .my-contact {
     background-color: #e7e7e7;
     height: 55px;
@@ -73,6 +53,7 @@ li {
     color: rgb(155, 155, 155);
 }
 
+/* Notification on/off */
 .notification {
     background-color: #6dd7ff;
     height: 60px;
@@ -96,9 +77,9 @@ li {
 .text-notification span {
     font-size: 0.8rem;
     margin: 0;
-
 }
 
+/* Search contact section */
 .input-search-contact {
     background-color: #f2ebe6;
     padding: 0.5rem 1rem 0.5rem 0.5rem;
@@ -116,12 +97,31 @@ li {
     background-color: white;
     width: 100%;
     padding: 0.3rem 1rem;
-
 }
 
+/* CONTACTS */
 .contacts-container {
     max-height: 390px;
     overflow: auto;
+}
+
+.contacts {
+    height: 60px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+li {
+    border-bottom: 1px solid rgb(210, 210, 210);
+}
+
+.avatar-side {
+    width: 50px;
+    height: 50px;
+    clip-path: circle(50% at 50% 50%);
 }
 
 .last-access {

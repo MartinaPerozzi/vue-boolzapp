@@ -35,127 +35,127 @@
 
 	<div id="root">
 
-		<div class="container boolzap-bg">
 
-			<div class="container-division d-flex">
-				<!-- SIDEBAR -->
-				<div class="sidebar-contact">
-					<!-- MY SECTION -->
-					<div class="my-contact d-flex justify-content-between p-1 align-items-center">
-						<!-- Avatar & name Right Side-->
-						<div class="my-contact-right-side-me ms-2 m-1">
-							<img class="my-img me-2" src="./img/avatar_io.jpg" alt="">
-							<span>Sofia</span>
-						</div>
-						<!-- Icons Left Side -->
-						<div class="my-icons d-flex me-3">
-							<i class="fa-solid fa-circle-notch"></i>
-							<i class="fa-solid fa-message"></i>
-							<i class="fa-solid fa-ellipsis-vertical"></i>
+
+		<div class="container-division d-flex">
+			<!-- SIDEBAR -->
+			<div class="sidebar-contact d-flex flex-column">
+				<!-- MY SECTION -->
+				<div class="my-contact d-flex justify-content-between p-1 align-items-center">
+					<!-- Avatar & name Right Side-->
+					<div class="my-contact-right-side ms-2 m-1">
+						<img class="my-img me-2" src="./img/avatar_io.jpg" alt="">
+						<span>Sofia</span>
+					</div>
+					<!-- Icons Left Side -->
+					<div class="my-icons d-flex me-3">
+						<i class="fa-solid fa-circle-notch"></i>
+						<i class="fa-solid fa-message"></i>
+						<i class="fa-solid fa-ellipsis-vertical"></i>
+					</div>
+				</div>
+				<!-- Notification section -->
+				<div class="notification d-flex align-items-center">
+					<!-- Bell notification Icon -->
+					<div class="notification-icon ms-2 me-2 d-flex align-items-center justify-content-center">
+						<i class="fa-solid fa-bell-slash"></i>
+					</div>
+					<div class="text-notification">
+						<di>Ricevi notifiche di nuovi messaggi</di>
+						<div class="active-notification">
+							<a href="#">Attiva notifica desktop</a>
 						</div>
 					</div>
-					<!-- Notification section -->
-					<div class="notification d-flex align-items-center">
-						<!-- Bell notification Icon -->
-						<div class="notification-icon ms-2 me-2 d-flex align-items-center justify-content-center">
-							<i class="fa-solid fa-bell-slash"></i>
-						</div>
-						<div class="text-notification">
-							<di>Ricevi notifiche di nuovi messaggi</di>
-							<div class="active-notification">
-								<a href="#">Attiva notifica desktop</a>
-							</div>
-						</div>
+				</div>
+				<!-- SEARCH contact section -->
+				<div class="input-search-contact">
+					<div class="bg-white d-flex">
+						<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
+						<input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
 					</div>
-					<!-- SEARCH contact section -->
-					<div class="input-search-contact">
-						<div class="bg-white d-flex">
-							<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
-							<input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
-						</div>
-					</div>
+				</div>
 
-					<!-- CONTACTS -->
-					<div class="contacts-container pt-2">
-						<ul>
-							<!-- Crea contatti -->
-							<li v-for="(contact,activeContact) in contacts">
+				<!-- CONTACTS -->
+				<div class="contacts-container pt-2 flex-grow-1">
+					<ul>
+						<!-- Crea contatti -->
+						<li v-for="(contact,activeContact) in contacts">
 
-								<div class="contacts d-flex" v-if="contact.name.toLowerCase().includes(search)"
-									@click="goToContactChat(activeContact)">
+							<div class="contacts d-flex" v-if="contact.name.toLowerCase().includes(search)"
+								@click="goToContactChat(activeContact)">
 
-									<div class=" avatar-img align-self-center">
-										<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
-									</div>
-									<div class="contact-info ms-2 pt-1"> {{contact.name}}
-										<div class="last-access">Ultimo accesso il {{lastAccess(activeContact)}} </div>
-									</div>
+								<div class=" avatar-img align-self-center">
+									<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
 								</div>
+								<div class="contact-info ms-2 pt-1"> {{contact.name}}
+									<div class="last-access">Ultimo accesso il {{lastAccess(activeContact)}} </div>
+								</div>
+							</div>
 
-							</li>
+						</li>
 
-						</ul>
+					</ul>
+				</div>
+
+			</div>
+
+			<!-- MAIN - CONVERSATION-->
+			<div class="main-chat-content">
+				<!-- HEAD / CONTACT HEADER-->
+				<div class="head-contact d-flex align-items-center justify-content-between pe-3">
+					<div class="d-flex align-items-center">
+						<img class="current-contact-img ms-2"
+							:src="['img/avatar' + contacts[activeContact].avatar + '.jpg']">
+						<div class="ms-2">
+							<span class="current-name">
+								{{contacts[activeContact].name}}
+							</span>
+							<div class="last-access">Ultimo accesso il {{lastAccess(activeContact)}} </div>
+						</div>
+					</div>
+
+
+					<div class="icon-current-contact d-flex">
+						<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
+						<i class="fa-solid fa-paperclip"></i>
+						<i class="fa-solid fa-ellipsis-vertical ps-2"></i>
+
 					</div>
 
 				</div>
-
-				<!-- MAIN - CONVERSATION-->
-				<div class="main-chat-content">
-					<!-- HEAD / CONTACT HEADER-->
-					<div class="head-contact d-flex align-items-center justify-content-between pe-3">
-						<div class="d-flex align-items-center">
-							<img class="current-contact-img ms-2"
-								:src="['img/avatar' + contacts[activeContact].avatar + '.jpg']">
-							<div class="ms-2">
-								<span class="current-name">
-									{{contacts[activeContact].name}}
-								</span>
-								<div class="last-access">Ultimo accesso il {{lastAccess(activeContact)}} </div>
-							</div>
+				<!-- CENTER / MAIN CHAT-->
+				<div class="main-center">
+					<!-- Per ogni messaggio e indice del messaggio contenuto in ciascun contatto (dell'array contatti) -->
+					<div class="conversation d-flex flex-column">
+						<!-- mostra il testo di ogni messaggio nella chat specifica di ogni contatto (index= activeContact)-->
+						<div class="message-chat" v-for="(message, index) in contacts[activeContact].messages"
+							:class="message.status">
+							{{message.text}}
 						</div>
-
-
-						<div class="icon-current-contact d-flex">
-							<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
-							<i class="fa-solid fa-paperclip"></i>
-							<i class="fa-solid fa-ellipsis-vertical ps-2"></i>
+						<div class="time">
 
 						</div>
-
 					</div>
-					<!-- CENTER / MAIN CHAT-->
-					<div class="main-center">
-						<!-- Per ogni messaggio e indice del messaggio contenuto in ciascun contatto (dell'array contatti) -->
-						<div class="conversation d-flex flex-column">
-							<!-- mostra il testo di ogni messaggio nella chat specifica di ogni contatto (index= activeContact)-->
-							<div class="message-chat" v-for="(message, index) in contacts[activeContact].messages"
-								:class="message.status">
-								{{message.text}}
-							</div>
-							<div class="time">
-
-							</div>
-						</div>
-					</div>
-
-					<!-- FOOTER / CHAT INPUT -->
-					<div class="foot-message d-flex align-items-center">
-						<i class="fa-regular fa-face-smile"></i>
-						<input @keyUp.enter="addMessage(activeContact)" class="insert-message" type="text"
-							placeholder="Scrivi un messaggio" v-model="myMessages.text">
-						<i class="fa-solid fa-paper-plane" @click="addMessage(activeContact)"></i>
-						<i class="fa-solid fa-microphone"></i>
-					</div>
-
 				</div>
 
+				<!-- FOOTER / CHAT INPUT -->
+				<div class="foot-message d-flex align-items-center">
+					<i class="fa-regular fa-face-smile"></i>
+					<input @keyUp.enter="addMessage(activeContact)" class="insert-message" type="text"
+						placeholder="Scrivi un messaggio" v-model="myMessages.text">
+					<i class="fa-solid fa-paper-plane" @click="addMessage(activeContact)"></i>
+					<i class="fa-solid fa-microphone"></i>
+				</div>
 
 			</div>
 
 
-
-
 		</div>
+
+
+
+
+
 	</div>
 
 

@@ -101,9 +101,11 @@
 			<div class="main-chat-content">
 				<!-- HEAD / CONTACT HEADER-->
 				<div class="head-contact d-flex align-items-center justify-content-between pe-3">
+					<!-- Avatar & Info -->
 					<div class="d-flex align-items-center">
 						<img class="current-contact-img ms-2"
 							:src="['img/avatar' + contacts[activeContact].avatar + '.jpg']">
+						<!-- Informations -->
 						<div class="ms-2">
 							<span class="current-name">
 								{{contacts[activeContact].name}}
@@ -111,8 +113,7 @@
 							<div class="last-access">Ultimo accesso il {{lastAccess(activeContact)}} </div>
 						</div>
 					</div>
-
-
+					<!-- Icons Right Side Header -->
 					<div class="icon-current-contact d-flex">
 						<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
 						<i class="fa-solid fa-paperclip"></i>
@@ -131,17 +132,20 @@
 							{{message.text}}
 							<div class="time d-flex justify-content-end">
 								<span>12.00</span>
-
 							</div>
+
 						</div>
 					</div>
 				</div>
 
 				<!-- FOOTER / CHAT INPUT -->
 				<div class="foot-message d-flex align-items-center">
+					<!-- Icons&Input Type Chat -->
 					<i class="fa-regular fa-face-smile"></i>
+
 					<input @keyUp.enter="addMessage(activeContact)" class="insert-message" type="text"
 						placeholder="Scrivi un messaggio" v-model="myMessages.text">
+
 					<i class="fa-solid fa-paper-plane" @click="addMessage(activeContact)"></i>
 					<i class="fa-solid fa-microphone"></i>
 				</div>
@@ -152,11 +156,7 @@
 		</div>
 
 
-
-
-
 	</div>
-
 
 
 </body>

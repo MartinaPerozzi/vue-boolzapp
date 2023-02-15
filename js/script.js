@@ -231,6 +231,11 @@ const app = Vue.createApp({
             return this.contacts[index].messages[lastmessage].date;
         },
 
+        // Prova-non funziona
+        deleteMessage(index) {
+            this.contacts[index].messages.splice(i, 1);
+        }
+
 
     },
 

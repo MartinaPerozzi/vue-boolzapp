@@ -105,7 +105,7 @@ body {
     padding: 0.5rem;
     width: 100%;
     color: #adaba9;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .input-search-contact input {
@@ -147,7 +147,15 @@ li {
 .last-access {
     font-size: 0.6rem;
     margin-top: 0.3rem;
+    color: var(--dark-grey);
+}
+
+.contacts .last-access {
     color: rgb(174, 174, 174);
+}
+
+.contact-info {
+    font-size: 0.9rem;
 }
 
 /* MAIN SECTION */
@@ -239,7 +247,12 @@ input:focus {
 
 .message-chat {
     margin-top: 1rem;
-    padding: 1rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
     border-radius: 0.5rem;
     width: 250px;
+}
+
+.time {
+    font-size: 0.6rem;
+    color: var(--dark-grey);
 }

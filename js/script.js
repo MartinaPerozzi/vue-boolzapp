@@ -174,13 +174,14 @@ const app = Vue.createApp({
                     ],
                 },
             ],
-            // oggetto per risposta
+            // variabile per risposta
             myMessage: "",
 
             // Setto un indice per il parametro index
             activeContact: 0,
             // Ricerca contatto- per collegare l'input a un elemento reattivo con il v-model
             search: "",
+            pop: false,
 
         }
 
@@ -247,14 +248,18 @@ const app = Vue.createApp({
         lastAccess(index) {
             // Variabile per prendere ultimo elemento di un array (in questo caso ultimo oggetto- quindi lunghezza massima delle cose contenute nell'array messages-ovvero messages.length- -1)
             let lastmessage = this.contacts[index].messages.length - 1;
-            return this.contacts[index].messages[lastmessage].date;
+            if (lastmessage > 0) {
+                return this.contacts[index].messages[lastmessage].date;
+            }
             // del contatto corrente che starai ciclando nel for prendimi per ognuno l'ultima proprietà "data" dell'ultimo oggetto "messaggio".
         },
         // *****************************************
         // Ultimo messaggio
         lastMessage(index) {
             let lastmessageSend = this.contacts[index].messages.length - 1;
-            return this.contacts[index].messages[lastmessageSend].text;
+            if (lastmessageSend > 0) {
+                return this.contacts[index].messages[lastmessageSend].text;
+            }
             // del contatto corrente che starai ciclando nel for prendimi per ognuno l'ultima proprietà "data" dell'ultimo oggetto "messaggio".
         },
 

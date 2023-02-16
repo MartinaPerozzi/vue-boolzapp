@@ -80,16 +80,16 @@
 				<div class="contacts-container pt-2 flex-grow-1">
 					<ul>
 						<!-- Crea contatti -->
-						<li v-for="(contact, activeContact) in contacts"
-							v-show="contact.name.toLowerCase().includes(search)">
+						<li v-for="(contact, index) in contacts" v-show="contact.name.toLowerCase().includes(search)">
 
-							<div class="contacts d-flex" @click="goToContactChat(activeContact)">
+							<div class="contacts d-flex" @click="goToContactChat(index)"
+								:class="activeContact==index ? 'bg-active': ''">
 
 								<div class="avatar-img align-self-center">
 									<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
 								</div>
 								<div class="contact-info ms-2 pt-1"> {{contact.name}}
-									<div class="last-access">{{lastMessage(activeContact)}} </div>
+									<div class="last-access">{{lastMessage(index)}} </div>
 								</div>
 							</div>
 
@@ -131,16 +131,15 @@
 					<div class="conversation d-flex flex-column">
 						<!-- mostra il testo di ogni messaggio nella chat specifica di ogni contatto (index= activeContact)-->
 						<div class="message-chat" v-for="(message, index) in contacts[activeContact].messages"
-							:class="message.status" @click="deleteMessage(index)">
+							:class="message.status" @click="pop = !pop">
 							{{message.text}}
 							<div class="time d-flex justify-content-end">
 								<span class="mt-1">{{message.date}}</span>
 							</div>
-
-							<!-- Prova milestone 5 -->
-
-
-
+						</div>
+						<!-- Prova milestone 5 -->
+						<div class="pop-up" v-for="(contact, index) in contacts[activeContact]" v-show="pop">
+							<span @click="deleteMessage(activeContact)">Delete</span>
 						</div>
 					</div>
 				</div>

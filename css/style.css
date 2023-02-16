@@ -264,3 +264,31 @@ input:focus {
 .bg-active {
     background-color: rgb(223, 223, 223);
 }
+
+/* Night mood */
+.fa-moon {
+    font-size: 1.1rem;
+}
+
+.bg-black {
+    background-color: black;
+    color: white;
+}
+
+.bg-active-night {
+    background-color: rgb(50, 50, 50);
+}
+
+.bg-img-night {
+    background-image: url(../img/mine1.jpg);
+}
+
+.invert {
+    filter: invert();
+}
+
+.violet {
+    background-color: #3a0455
+}
+
+;

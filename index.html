@@ -40,9 +40,10 @@
 
 		<div class="container-division d-flex">
 			<!-- SIDEBAR -->
-			<div class="sidebar-contact d-flex flex-column">
+			<div class="sidebar-contact d-flex flex-column" :class="(night)? 'bg-black':''">
 				<!-- MY SECTION -->
-				<div class="my-contact d-flex justify-content-between p-1 align-items-center">
+				<div class="my-contact d-flex justify-content-between p-1 align-items-center"
+					:class="(night)? 'bg-black':''">
 					<!-- Avatar & name Right Side-->
 					<div class="my-contact-right-side ms-2 m-1">
 						<img class="my-img me-2" src="./img/avatar_io.jpg" alt="">
@@ -53,10 +54,13 @@
 						<i class="fa-solid fa-circle-notch pe-1"></i>
 						<i class="fa-solid fa-message pe-1"></i>
 						<i class="fa-solid fa-ellipsis-vertical ps-1"></i>
+						<div @click="night=!night">
+							<i class="fa-solid fa-moon ps-1"></i>
+						</div>
 					</div>
 				</div>
 				<!-- Notification section -->
-				<div class="notification d-flex align-items-center">
+				<div class="notification d-flex align-items-center" :class="(night)? 'violet':''">
 					<!-- Bell notification Icon -->
 					<div class="notification-icon ms-2 me-2 d-flex align-items-center justify-content-center">
 						<i class="fa-solid fa-bell-slash"></i>
@@ -69,7 +73,7 @@
 					</div>
 				</div>
 				<!-- SEARCH contact section -->
-				<div class="input-search-contact">
+				<div class="input-search-contact" :class="(night)? 'bg-black':''">
 					<div class="bg-white d-flex">
 						<i class="align-self-center fa-solid fa-magnifying-glass me-2"></i>
 						<input type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
@@ -101,9 +105,10 @@
 			</div>
 
 			<!-- MAIN - CHAT-->
-			<div class="main-chat-content">
+			<div class="main-chat-content" :class="(night)? 'bg-img-night':''">
 				<!-- HEAD / CONTACT HEADER-->
-				<div class="head-contact d-flex align-items-center justify-content-between pe-3">
+				<div class="head-contact d-flex align-items-center justify-content-between pe-3"
+					:class="(night)? 'bg-black':''">
 					<!-- Avatar & Info -->
 					<div class="d-flex align-items-center">
 						<img class="current-contact-img ms-2"
@@ -126,9 +131,9 @@
 
 				</div>
 				<!-- CENTER / MAIN CHAT-->
-				<div class="main-center">
+				<div class="main-center" :class="(night)? 'bg-img-night':''">
 					<!-- Per ogni messaggio e indice del messaggio contenuto in ciascun contatto (dell'array contatti) -->
-					<div class="conversation d-flex flex-column">
+					<div class="conversation d-flex flex-column" :class="(night)? 'invert':''">
 						<!-- mostra il testo di ogni messaggio nella chat specifica di ogni contatto (index= activeContact)-->
 						<div class="message-chat" v-for="(message, index) in contacts[activeContact].messages"
 							:class="message.status" @click="pop = !pop">
@@ -139,13 +144,13 @@
 						</div>
 						<!-- Prova milestone 5 -->
 						<div class="pop-up" v-for="(message, index) in contacts[activeContact].messages" v-show="pop">
-							<span @click="deleteMessage(index)" class="ps-2 pt-1">Delete</span>
+							<span @click="deleteMessage(index)" class="ps-2">Delete</span>
 						</div>
 					</div>
 				</div>
 
 				<!-- FOOTER / CHAT INPUT -->
-				<div class="foot-message d-flex align-items-center">
+				<div class="foot-message d-flex align-items-center" :class="(night)? 'bg-black':''">
 					<!-- Icons&Input Type Chat -->
 					<i class="fa-regular fa-face-smile"></i>
 

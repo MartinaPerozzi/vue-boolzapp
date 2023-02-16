@@ -182,6 +182,7 @@ const app = Vue.createApp({
             // Ricerca contatto- per collegare l'input a un elemento reattivo con il v-model
             search: "",
             pop: false,
+            night: false,
 
         }
 

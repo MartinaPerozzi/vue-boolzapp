@@ -24,6 +24,9 @@
 	<!-- Style -->
 	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./css/style.css">
+	<!-- Luxon -->
+	<script src="
+	https://cdn.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
 	<!-- JAVASCRIPT-Vue -->
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 	<!-- My-JS -->
@@ -97,7 +100,7 @@
 
 			</div>
 
-			<!-- MAIN - CONVERSATION-->
+			<!-- MAIN - CHAT-->
 			<div class="main-chat-content">
 				<!-- HEAD / CONTACT HEADER-->
 				<div class="head-contact d-flex align-items-center justify-content-between pe-3">
@@ -131,7 +134,7 @@
 							:class="message.status" @click="deleteMessage(activeContact)">
 							{{message.text}}
 							<div class="time d-flex justify-content-end">
-								<span>12.00</span>
+								<span>{{message.date}}</span>
 							</div>
 
 						</div>

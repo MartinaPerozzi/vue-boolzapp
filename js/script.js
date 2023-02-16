@@ -1,3 +1,7 @@
+// Variabili globali
+// Variabile per il tempo
+let dt = luxon.DateTime;
+
 // Configurazione Vue
 const app = Vue.createApp({
     data: function () {
@@ -170,14 +174,15 @@ const app = Vue.createApp({
                     ],
                 },
             ],
+            // oggetto per risposta
             myMessages: {
-
             },
 
             // Setto un indice per il parametro index
             activeContact: 0,
             // Ricerca contatto- per collegare l'input a un elemento reattivo con il v-model
             search: "",
+
         }
 
     },
@@ -185,10 +190,16 @@ const app = Vue.createApp({
     methods: {
 
         // Crea una funzione con una copia dell'oggetto vuoto che ho già creato in "data" e che è reattivo, collega la proprietà text dell'oggetto all'input di testo con v-model
+
         addMessage(index) {
+            let now = dt
+                .now()
+                .toLocaleString(dt.DATETIME_SHORT);
+
             const myMessageCopia = {
                 text: this.myMessages.text,
                 status: 'sent',
+                date: now,
             }
             // Per non mandare messaggi vuoti
             if (myMessageCopia.text.length > 0) {
@@ -202,48 +213,69 @@ const app = Vue.createApp({
             }
 
         },
+        // *****************************************
         // Vai alla chat/ metodo Thumbnails
         goToContactChat(index) {
             this.activeContact = index;
-
         },
 
+        // *****************************************
         // Setta una risposta automatica ogni secondo, da attivare all'invio del messaggio
         answerMess(index) {
+            let now = dt
+                .now()
+                .setLocale("it")
+                .toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+
             setTimeout(() => {
                 const answer = {
                     text: "Ok! :)",
                     status: 'received',
+                    date: now,
                 }
                 // Pusha la risposta dentro all'array messages in contacts - per ogni contatto- ci entro con parametro index-
                 this.contacts[index].messages.push(answer);
                 // Torna bianco
                 this.myMessages.text = "";
 
+                now = dt
+                    .now()
+                    .setLocale("it")
+                    .toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+
             }, 1000);
         },
 
+        // *****************************************
         // Ultimo accesso
         lastAccess(index) {
             // Variabile per prendere ultimo elemento di un array (in questo caso ultimo oggetto- quindi lunghezza massima delle cose contenute nell'array messages-ovvero messages.length- -1)
             let lastmessage = this.contacts[index].messages.length - 1;
-            // del contatto corrente che starai ciclando nel for prendimi per ognuno l'ultima proprietà "data" dell'ultimo oggetto "messaggio".
             return this.contacts[index].messages[lastmessage].date;
+            // del contatto corrente che starai ciclando nel for prendimi per ognuno l'ultima proprietà "data" dell'ultimo oggetto "messaggio".
         },
-
+        // *****************************************
         // Ultimo messaggio
         lastMessage(index) {
             let lastmessageSend = this.contacts[index].messages.length - 1;
-            // del contatto corrente che starai ciclando nel for prendimi per ognuno l'ultima proprietà "data" dell'ultimo oggetto "messaggio".
             return this.contacts[index].messages[lastmessageSend].text;
+            // del contatto corrente che starai ciclando nel for prendimi per ognuno l'ultima proprietà "data" dell'ultimo oggetto "messaggio".
         },
 
+        // *****************************************
         // Prova-non funziona
         deleteMessage(index) {
             this.contacts[index].messages.splice(i, 1);
-        }
+        },
 
-
+        // *****************************************
+        // prendi la data
+        dateTime() {
+            now = dt
+                .now()
+                .toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+            return now;
+        },
     },
 
 });

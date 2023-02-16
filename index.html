@@ -80,10 +80,10 @@
 				<div class="contacts-container pt-2 flex-grow-1">
 					<ul>
 						<!-- Crea contatti -->
-						<li v-for="(contact, activeContact) in contacts">
+						<li v-for="(contact, activeContact) in contacts"
+							v-show="contact.name.toLowerCase().includes(search)">
 
-							<div class="contacts d-flex" v-if="contact.name.toLowerCase().includes(search)"
-								@click="goToContactChat(activeContact)">
+							<div class="contacts d-flex" @click="goToContactChat(activeContact)">
 
 								<div class="avatar-img align-self-center">
 									<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
@@ -151,7 +151,7 @@
 					<i class="fa-regular fa-face-smile"></i>
 
 					<input @keyUp.enter="addMessage(activeContact)" class="insert-message" type="text"
-						placeholder="Scrivi un messaggio" v-model="myMessages.text">
+						placeholder="Scrivi un messaggio" v-model="myMessage">
 
 					<i class="fa-solid fa-paper-plane" @click="addMessage(activeContact)"></i>
 					<i class="fa-solid fa-microphone"></i>

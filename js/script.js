@@ -175,8 +175,7 @@ const app = Vue.createApp({
                 },
             ],
             // oggetto per risposta
-            myMessages: {
-            },
+            myMessage: "",
 
             // Setto un indice per il parametro index
             activeContact: 0,
@@ -197,7 +196,7 @@ const app = Vue.createApp({
                 .toLocaleString(dt.DATETIME_SHORT);
 
             const myMessageCopia = {
-                text: this.myMessages.text,
+                text: this.myMessage,
                 status: 'sent',
                 date: now,
             }
@@ -207,7 +206,7 @@ const app = Vue.createApp({
                 // questo pusherà il nuovo elemento che verrà preso dal v-for applicato alla sezione contatti aggiungendolo alla chat.
                 this.contacts[index].messages.push(myMessageCopia);
                 // Riparti da bianco
-                this.myMessages.text = "";
+                this.myMessages = "";
                 // Funzione risposta automatica
                 this.answerMess(index);
             }
@@ -235,7 +234,7 @@ const app = Vue.createApp({
                 // Pusha la risposta dentro all'array messages in contacts - per ogni contatto- ci entro con parametro index-
                 this.contacts[index].messages.push(answer);
                 // Torna bianco
-                this.myMessages.text = "";
+                this.myMessages = "";
 
                 now = dt
                     .now()

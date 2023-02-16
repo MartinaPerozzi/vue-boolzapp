@@ -138,8 +138,8 @@
 							</div>
 						</div>
 						<!-- Prova milestone 5 -->
-						<div class="pop-up" v-for="(contact, index) in contacts[activeContact]" v-show="pop">
-							<span @click="deleteMessage(activeContact)">Delete</span>
+						<div class="pop-up" v-for="(message, index) in contacts[activeContact].messages" v-show="pop">
+							<span @click="deleteMessage(index)" class="ps-2 pt-1">Delete</span>
 						</div>
 					</div>
 				</div>

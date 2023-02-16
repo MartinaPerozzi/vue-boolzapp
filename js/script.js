@@ -190,6 +190,7 @@ const app = Vue.createApp({
     methods: {
 
         // Crea una funzione con una copia dell'oggetto vuoto che ho già creato in "data" e che è reattivo, collega la proprietà text dell'oggetto all'input di testo con v-model
+
         addMessage(index) {
             let now = dt
                 .now()
@@ -239,7 +240,6 @@ const app = Vue.createApp({
                 now = dt
                     .now()
                     .toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
-
             }, 1000);
         },
 
@@ -262,11 +262,10 @@ const app = Vue.createApp({
         // *****************************************
         // Prova-non funziona
         deleteMessage(index) {
-            this.contacts[index].messages.splice(i, 1);
+            this.contacts[this.activeContact].messages.splice(index, 1);
         },
 
         // *****************************************
-
     },
 
 });

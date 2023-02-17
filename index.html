@@ -63,7 +63,7 @@
 				<div class="notification d-flex align-items-center" :class="(night)? 'violet':''">
 					<!-- Bell notification Icon -->
 					<div class="notification-icon ms-2 me-2 d-flex align-items-center justify-content-center">
-						<i class="fa-solid fa-bell-slash"></i>
+						<i class="fa-solid fa-bell-slash" :class="(night)? 'invert': ''"></i>
 					</div>
 					<div class="text-notification">
 						<di>Ricevi notifiche di nuovi messaggi</di>
@@ -87,7 +87,7 @@
 						<li v-for="(contact, index) in contacts" v-show="contact.name.toLowerCase().includes(search)">
 
 							<div class="contacts d-flex" @click="goToContactChat(index)"
-								:class="activeContact==index ? 'bg-active': ''">
+								:class="(activeContact==index &&!night)? 'bg-active': 'bg-night'">
 
 								<div class="avatar-img align-self-center">
 									<img class="avatar-side" :src="['img/avatar' + contact.avatar + '.jpg']" alt="">
@@ -136,7 +136,8 @@
 					<div class="conversation d-flex flex-column" :class="(night)? 'invert':''">
 						<!-- mostra il testo di ogni messaggio nella chat specifica di ogni contatto (index= activeContact)-->
 						<div class="message-chat" v-for="(message, index) in contacts[activeContact].messages"
-							:class="message.status" @click="messageMenu(index)">
+							:class="message.status" @click="messageMenu(index)" :tabindex="index"
+							@blur="activeMessage.open=false">
 							{{message.text}}
 							<div class="time d-flex justify-content-end">
 								<span class="mt-1">{{message.date}}</span>

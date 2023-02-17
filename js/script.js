@@ -181,11 +181,12 @@ const app = Vue.createApp({
             activeContact: 0,
             // Ricerca contatto- per collegare l'input a un elemento reattivo con il v-model
             search: "",
+            // Night mood
             night: false,
             // Variabile per menu a tendina
             activeMessage: {
                 index: 0,
-                open: true,
+                open: false,
             }
 
         }

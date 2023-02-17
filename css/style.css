@@ -238,6 +238,7 @@ input:focus {
     padding: 0.8rem 0.5rem 0.5rem 1rem;
     border-radius: 0.5rem;
     width: 250px;
+    position: relative;
 }
 
 .sent {
@@ -256,9 +257,22 @@ input:focus {
 }
 
 .pop-up {
+    width: 160px;
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    left: 0px;
+    border-radius: 1rem;
     background-color: white;
-    width: 100px;
-    height: 30px;
+}
+
+.pop-up div {
+    padding: 1rem;
+}
+
+.opt:first-child {
+    border-bottom: 1px solid var(--grey-icon);
 }
 
 .bg-active {

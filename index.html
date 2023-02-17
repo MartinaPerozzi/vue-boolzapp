@@ -136,15 +136,18 @@
 					<div class="conversation d-flex flex-column" :class="(night)? 'invert':''">
 						<!-- mostra il testo di ogni messaggio nella chat specifica di ogni contatto (index= activeContact)-->
 						<div class="message-chat" v-for="(message, index) in contacts[activeContact].messages"
-							:class="message.status" @click="pop = !pop">
+							:class="message.status" @click="messageMenu(index)">
 							{{message.text}}
 							<div class="time d-flex justify-content-end">
 								<span class="mt-1">{{message.date}}</span>
 							</div>
-						</div>
-						<!-- Prova milestone 5 -->
-						<div class="pop-up" v-for="(message, index) in contacts[activeContact].messages" v-show="pop">
-							<span @click="deleteMessage(index)" class="ps-2">Delete</span>
+							<!-- Prova MILESTONE 5 -->
+
+							<div class="pop-up" v-if="activeMessage.open && activeMessage.index==index">
+								<div @click="deleteMessage(index)" class="opt ps-2">Delete</div>
+								<div class="opt ps-2">Info</div>
+							</div>
+
 						</div>
 					</div>
 				</div>

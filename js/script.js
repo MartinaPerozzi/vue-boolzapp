@@ -181,17 +181,19 @@ const app = Vue.createApp({
             activeContact: 0,
             // Ricerca contatto- per collegare l'input a un elemento reattivo con il v-model
             search: "",
-            pop: false,
             night: false,
+            // Variabile per menu a tendina
+            activeMessage: {
+                index: 0,
+                open: true,
+            }
 
         }
 
     },
 
     methods: {
-
         // Crea una funzione con una copia dell'oggetto vuoto che ho già creato in "data" e che è reattivo, collega la proprietà text dell'oggetto all'input di testo con v-model
-
         addMessage(index) {
             let now = dt
                 .now()
@@ -247,6 +249,7 @@ const app = Vue.createApp({
         lastAccess(index) {
             // Variabile per prendere ultimo elemento di un array (in questo caso ultimo oggetto- quindi lunghezza massima delle cose contenute nell'array messages-ovvero messages.length- -1)
             let lastmessage = this.contacts[index].messages.length - 1;
+            // Controllo che non mi dia errore arrivati all'ultimo mex
             if (lastmessage > 0) {
                 return this.contacts[index].messages[lastmessage].date;
             }
@@ -263,12 +266,22 @@ const app = Vue.createApp({
         },
 
         // *****************************************
-        // Prova-non funziona
-        deleteMessage(index) {
-            this.contacts[this.activeContact].messages.splice(index, 1);
+        // Apri tendina MILESTONE 5- clickedindex è l'index del v-for
+        messageMenu(clickedindex) {
+            if (clickedindex == this.activeMessage.index) {
+                // creo un toggle
+                this.activeMessage.open = !this.activeMessage.open;
+            } else {
+                this.activeMessage.index = clickedindex;
+                this.activeMessage.open = true;
+            }
         },
 
         // *****************************************
+        // Elimina messaggio
+        deleteMessage(index) {
+            this.contacts[this.activeContact].messages.splice(index, 1);
+        },
     },
 
 });

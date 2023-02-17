@@ -66,7 +66,7 @@
 						<i class="fa-solid fa-bell-slash" :class="(night)? 'invert': ''"></i>
 					</div>
 					<div class="text-notification">
-						<di>Ricevi notifiche di nuovi messaggi</di>
+						<div>Ricevi notifiche di nuovi messaggi</div>
 						<div class="active-notification">
 							<a href="#">Attiva notifica desktop</a>
 						</div>
@@ -96,9 +96,7 @@
 									<div class="last-access">{{lastMessage(index)}} </div>
 								</div>
 							</div>
-
 						</li>
-
 					</ul>
 				</div>
 
@@ -130,6 +128,7 @@
 					</div>
 
 				</div>
+
 				<!-- CENTER / MAIN CHAT-->
 				<div class="main-center" :class="(night)? 'bg-img-night':''">
 					<!-- Per ogni messaggio e indice del messaggio contenuto in ciascun contatto (dell'array contatti) -->
@@ -142,8 +141,8 @@
 							<div class="time d-flex justify-content-end">
 								<span class="mt-1">{{message.date}}</span>
 							</div>
-							<!-- Prova MILESTONE 5 -->
 
+							<!-- Prova MILESTONE 5 -->
 							<div class="pop-up" v-if="activeMessage.open && activeMessage.index==index">
 								<div @click="deleteMessage(index)" class="opt ps-2">Delete</div>
 								<div class="opt ps-2">Info</div>
@@ -154,9 +153,18 @@
 				</div>
 
 				<!-- FOOTER / CHAT INPUT -->
-				<div class="foot-message d-flex align-items-center" :class="(night)? 'bg-black':''">
+				<div class="p-3 foot-message d-flex align-items-center" :class="(night)? 'bg-black':''">
 					<!-- Icons&Input Type Chat -->
-					<i class="fa-regular fa-face-smile"></i>
+					<i class="fa-regular fa-face-smile" @click="pop=!pop"></i>
+					<div class="emoticons" v-show="pop">
+						<div class="row row-cols-5">
+							<div class="col" v-for="(emoticon, index) in emoticons">
+								<img :src="'./emoticon/emo' + emoticon.emoticon + '.png'" alt=""
+									@click="activeEmoticon=true">
+							</div>
+
+						</div>
+					</div>
 
 					<input @keyUp.enter="addMessage(activeContact)" class="insert-message" type="text"
 						placeholder="Scrivi un messaggio" v-model="myMessage">

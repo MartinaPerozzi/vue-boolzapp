@@ -120,6 +120,7 @@ body {
 /* CONTACTS */
 .contacts-container {
     overflow: auto;
+    cursor: pointer;
 }
 
 .contacts {
@@ -190,7 +191,9 @@ li {
     gap: 1rem;
     color: rgb(121, 121, 121);
     font-size: 0.9rem;
+    position: relative;
 }
+
 
 .insert-message {
     height: 35px;
@@ -223,6 +226,7 @@ input:focus {
 
 .fa-face-smile {
     font-size: 1rem;
+    cursor: pointer;
 }
 
 
@@ -306,3 +310,22 @@ input:focus {
 }
 
 ;
+/* EMOTICONS */
+
+.selected-emoticon {
+    position: relative;
+}
+
+.selected-emoticon img {
+    top: -30px;
+}
+
+.emoticons {
+    position: absolute;
+    background-color: white;
+    width: 310px;
+    height: 220px;
+    bottom: 50px;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}

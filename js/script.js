@@ -187,13 +187,102 @@ const app = Vue.createApp({
             activeMessage: {
                 index: 0,
                 open: false,
-            }
+            },
+            // Emoticon
+            pop: false,
+
+            // AVATAR
+            emoticons: [
+                {
+                    emoticon: '_1',
+
+                },
+                {
+                    emoticon: '_2',
+
+                },
+                {
+                    emoticon: '_3',
+
+                },
+                {
+                    emoticon: '_4',
+
+                },
+                {
+                    emoticon: '_5',
+
+                },
+                {
+                    emoticon: '_6',
+
+                },
+                {
+                    emoticon: '_7',
+
+                },
+                {
+                    emoticon: '_8',
+
+                },
+                {
+                    emoticon: '_9',
+
+                },
+                {
+                    emoticon: '_10',
+
+                },
+                {
+                    emoticon: '_11',
+
+                },
+                {
+                    emoticon: '_12',
+
+                },
+                {
+                    emoticon: '_13',
+
+                },
+                {
+                    emoticon: '_14',
+
+                },
+                {
+                    emoticon: '_15',
+
+                },
+                {
+                    emoticon: '_16',
+
+                },
+                {
+                    emoticon: '_7',
+
+                },
+                {
+                    emoticon: '_18',
+
+                },
+                {
+                    emoticon: '_19',
+
+                },
+                {
+                    emoticon: '_20',
+
+                },
+            ],
+            activeEmoticon: false,
 
         }
 
     },
 
+
     methods: {
+
         // Crea una funzione con una copia dell'oggetto vuoto che ho già creato in "data" e che è reattivo, collega la proprietà text dell'oggetto all'input di testo con v-model
         addMessage(index) {
             let now = dt
